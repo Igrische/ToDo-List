@@ -9,12 +9,7 @@ const buttonAllTasks = document.getElementById('button_allTasks');
 const buttonOutTasks = document.getElementById('button_outstandingTasks');
 const buttonComplTasks = document.getElementById('button_completedTasks');
 
-let finishTasks;
-if (localStorage.getItem('todo')){
-    finishTasks = JSON.parse(localStorage.getItem('todo'))
-} else {
-    finishTasks = [];
-}
+const finishTasks = JSON.parse(localStorage.getItem('todo')) || [];
 displayActualTask();
 
 
