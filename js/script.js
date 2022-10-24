@@ -55,31 +55,33 @@ function updateLocal() {
 function displayActualTask(){
     ulTasks.innerHTML = '';
 
-    if (document.querySelector(".classAllTask")) {
+    if (finishTasks.length > 0) {
+        
+        if (document.querySelector(".classAllTask")) {
 
-        if (finishTasks.length > 0) {
             finishTasks.map(function(item){
                 ulTasks.innerHTML += addTask(item);
             });
-        }
-
-    } else if (document.querySelector(".classOutTask")) {
-
-        if (finishTasks.length > 0) {
-            let outstandingTasks = finishTasks.filter( elem => elem.check == false) ;
+    
+        } else if (document.querySelector(".classOutTask")) {
+            
+            let outstandingTasks = finishTasks.filter( elem => elem.check == false);
             outstandingTasks.map(function(item){
                 ulTasks.innerHTML += addTask(item);
             });
-        }
-    } else if (document.querySelector(".classComplTask")) {
-
-        if (finishTasks.length > 0) {
+            
+        } else if (document.querySelector(".classComplTask")) {
+    
             let completedTasks = finishTasks.filter( elem => elem.check == true) ;
             completedTasks.map(function(item){
                 ulTasks.innerHTML += addTask(item);
             });
+            
         }
+
     } else ulTasks.innerHTML = 'Упс, что-то пошло не так';
+
+    
 }
 
 
